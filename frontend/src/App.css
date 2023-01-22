@@ -26,5 +26,9 @@
 
 .icon {
   height: 36px;
-  margin-left: 12px;
+}
+
+.status {
+  display: flex;
+  padding-left: 12px;
 }

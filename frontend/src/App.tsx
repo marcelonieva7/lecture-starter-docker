@@ -50,11 +50,11 @@ function App() {
           <tbody>
             <tr>
               <td>HTTP Status</td>
-              <td>{loading ? renderLoading() : httpOk ? renderSuccess() : renderError()}</td>
+              <td className="status">{loading ? renderLoading() : httpOk ? renderSuccess() : renderError()}</td>
             </tr>
             <tr>
               <td>Database Status</td>
-              <td>{loading ? renderLoading() : databaseOk ? renderSuccess() : renderError()}</td>
+              <td className="status">{loading ? renderLoading() : databaseOk ? renderSuccess() : renderError()}</td>
             </tr>
           </tbody>
         </table>
