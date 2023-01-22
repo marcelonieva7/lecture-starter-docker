@@ -4,6 +4,7 @@ import loadingIcon from './assets/loading.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
 import { status } from './services/api';
+import { Status } from './services/enums';
 
 function App() {
   const [httpOk, setHttpOk] = useState(false);
@@ -16,8 +17,8 @@ function App() {
 
       try {
         const response = await status();
-        setHttpOk(response.data.http === 'ok');
-        setDatabaseOk(response.data.database === 'ok');
+        setHttpOk(response.data.http === Status.Ok);
+        setDatabaseOk(response.data.database === Status.Ok);
       } catch (e) {
         console.error(e);
 
