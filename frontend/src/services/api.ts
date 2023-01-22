@@ -1,11 +1,12 @@
 import axios from "axios";
+import { config } from "../config";
 
 interface PingResponse {
   status: string;
 }
 
 const client = axios.create({
-  baseURL: 'http://localhost:4000',
+  baseURL: config.api.url,
   timeout: 5000,
 });
 
