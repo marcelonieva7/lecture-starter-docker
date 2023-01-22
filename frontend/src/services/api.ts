@@ -1,8 +1,14 @@
 import axios from "axios";
 import { config } from "../config";
 
-interface PingResponse {
-  status: string;
+enum Status {
+  Ok = 'ok',
+  Error = 'error',
+}
+
+interface StatusResponse {
+  http: Status;
+  database: Status;
 }
 
 const client = axios.create({
@@ -10,6 +16,6 @@ const client = axios.create({
   timeout: 5000,
 });
 
-export const ping = async () => {
-  return client.get<PingResponse>('/ping');
+export const status = async () => {
+  return client.get<StatusResponse>('/status');
 };

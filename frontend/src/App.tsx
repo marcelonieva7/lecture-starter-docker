@@ -3,10 +3,11 @@ import successIcon from './assets/success.svg';
 import loadingIcon from './assets/loading.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
-import { ping } from './services/api';
+import { status } from './services/api';
 
 function App() {
-  const [pingSuccess, setPingSuccess] = useState(false);
+  const [httpOk, setHttpOk] = useState(false);
+  const [databaseOk, setDatabaseOk] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -14,8 +15,9 @@ function App() {
       setLoading(true);
 
       try {
-        const response = await ping();
-        setPingSuccess(response.data.status === 'ok');
+        const response = await status();
+        setHttpOk(response.data.http === 'ok');
+        setDatabaseOk(response.data.database === 'ok');
       } finally {
         setLoading(false);
       }
@@ -39,7 +41,18 @@ function App() {
   return (
     <div className="app">
       <div className="container">
-        Backend Status {loading ? renderLoading() : pingSuccess ? renderSuccess() : renderError()}
+        <table>
+          <tbody>
+            <tr>
+              <td>HTTP Status</td>
+              <td>{loading ? renderLoading() : httpOk ? renderSuccess() : renderError()}</td>
+            </tr>
+            <tr>
+              <td>Database Status</td>
+              <td>{loading ? renderLoading() : databaseOk ? renderSuccess() : renderError()}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   );
