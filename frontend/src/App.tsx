@@ -18,6 +18,11 @@ function App() {
         const response = await status();
         setHttpOk(response.data.http === 'ok');
         setDatabaseOk(response.data.database === 'ok');
+      } catch (e) {
+        console.error(e);
+
+        setHttpOk(false);
+        setDatabaseOk(false);
       } finally {
         setLoading(false);
       }
