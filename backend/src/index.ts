@@ -27,7 +27,7 @@ const start = async () => {
       };
     });
 
-    await fastify.listen({ port: config.http.port });
+    await fastify.listen({ host: config.http.host, port: config.http.port });
   } catch (err) {
     fastify.log.error(err);
     process.exit(1);
