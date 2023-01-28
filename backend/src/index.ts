@@ -11,7 +11,11 @@ const start = async () => {
   try {
     await fastify.register(cors);
 
-    fastify.get('/status', async (request, reply) => {
+    fastify.get('/ping', (_, reply) => {
+      reply.status(204).send();
+    });
+
+    fastify.get('/status', async () => {
       let databaseOk = false;
 
       try {
