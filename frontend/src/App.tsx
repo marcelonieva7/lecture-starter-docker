@@ -49,11 +49,11 @@ function App() {
       <div className="container">
         <table>
           <tbody>
-            <tr>
+            <tr id="http">
               <td>HTTP Status</td>
               <td className="status">{loading ? renderLoading() : httpOk ? renderSuccess() : renderError()}</td>
             </tr>
-            <tr>
+            <tr id="database">
               <td>Database Status</td>
               <td className="status">{loading ? renderLoading() : databaseOk ? renderSuccess() : renderError()}</td>
             </tr>
