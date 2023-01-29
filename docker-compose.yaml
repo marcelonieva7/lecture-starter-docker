@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  api:
+    # Add configuration here
+
+  web:
+    # Add configuration here
+
+  database:
+    # Add configuration here
