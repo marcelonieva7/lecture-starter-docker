@@ -1,0 +1,83 @@
+.status-wrapper {
+  border-radius: 20px;
+  border: 5px solid black;
+  box-shadow:
+    5px 5px 10px #6d6d6d,
+    inset 0 5px 3px rgba(255, 255, 255, 0.937),
+    inset 0 -5px 3px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 35dvw;
+  max-width: 250px;
+  height: 120px;
+  margin: 20px;
+  background-color: #f6fbf4;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.status-wrapper:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    5px 5px 15px #6d6d6d,
+    inset 0 5px 3px rgba(255, 255, 255, 0.937),
+    inset 0 -5px 3px rgba(0, 0, 0, 0.1);
+}
+
+.status-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.status-icon > .icon {
+  height: 36px;
+}
+
+.status-label {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: black;
+}
+
+.status-bar {
+  background-color: #ddd;
+  height: 20px;
+  border-radius: 15px;
+}
+
+.status-fill {
+  height: 100%;
+  border-radius: 15px;
+}
+
+.status-fill.ok,
+.status-fill.error {
+  box-shadow:
+    inset 0 2px 4px rgba(255, 255, 255, 0.5),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.status-fill.ok {
+  background: #4caf50;
+}
+
+.status-fill.error {
+  background: #f44336;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .loading {
+    animation: spin infinite 2s linear;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

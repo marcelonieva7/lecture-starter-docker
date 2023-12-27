@@ -39,3 +39,7 @@ They can be also set in the `.env` file for the development.
 | POSTGRES_USER     | `postgres`      | Database user          |
 | POSTGRES_PASSWORD | `secret`        | Database user password |
 | POSTGRES_DATABASE | `postgres`      | Database name          |
+
+## Hints
+
+When using Docker, the `POSTGRES_HOST` should be set to the value of the Docker database service.

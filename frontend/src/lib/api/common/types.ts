@@ -1,6 +1,8 @@
 import { Status } from "./enums";
 
-export interface StatusResponse {
+type StatusResponse = {
   http: Status;
   database: Status;
-}
+};
+
+export { type StatusResponse };

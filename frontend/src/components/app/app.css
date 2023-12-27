@@ -1,0 +1,14 @@
+.container {
+  min-height: 100dvh;
+  background-image: linear-gradient(
+    to top,
+    #a4b4b2 0%,
+    #a5b5b3 50%,
+    #a6b4b3 100%
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
