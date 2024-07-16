@@ -1,3 +1,3 @@
-FROM node:18.19.0-alpine
+FROM node:20-alpine
 
 # Add configuration here
