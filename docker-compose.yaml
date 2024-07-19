@@ -2,10 +2,33 @@ version: "3.9"
 
 services:
   api:
-    # Add configuration here
+    build:
+      context: ./backend
+      dockerfile: deployment/Dockerfile
+    ports:
+      - "4001:4001"
+    restart: always
+    depends_on:
+      - database
+    env_file:
+      - ./.env.development
 
   web:
-    # Add configuration here
+    build: 
+      context: ./frontend
+      dockerfile: deployment/Dockerfile
+    ports:
+      - "80:80"
+    restart: always
 
   database:
-    # Add configuration here
+    image: postgres:14-alpine
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    env_file:
+      - ./.env.development
+
+volumes:
+  db_data:
